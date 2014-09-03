@@ -1,0 +1,25 @@
+# Build settings
+
+source: .
+destination: ./_site
+markdown: kramdown
+permalinks: pretty
+safe:         true
+markdown_ext: md
+
+##############################################################################
+
+# Site settings
+
+name: Site name (from _config.yml)
+baseurl: ""
+
+##############################################################################
+
+# Collection settings
+
+collections:
+  type:
+    output: true
+  relation:
+    output: true
