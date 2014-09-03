@@ -4,15 +4,17 @@ source: .
 destination: ./_site
 markdown: kramdown
 permalinks: pretty
-safe:         true
+safe: true
 markdown_ext: md
 
 ##############################################################################
 
 # Site settings
 
-name: Site name (from _config.yml)
-baseurl: ""
+name: Annodoc
+homeurl: ""
+editurl: "https://github.com/spyysalo/annodoc/edit/pages-source"
+issueurl: "https://github.com/spyysalo/annodoc/issues"
 
 ##############################################################################
 
@@ -20,6 +22,4 @@ baseurl: ""
 
 collections:
   type:
-    output: true
-  relation:
     output: true

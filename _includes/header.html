@@ -2,9 +2,11 @@
 
   <div class="wrap">
 
-    <p class="small-gray">(This is the header, from _includes/header.html)</p>
+    {% if site.homeurl %}<a class="topnav" href="{{ site.homeurl }}">home</a>{% endif %}
+    {% if site.editurl %}<a class="topnav" href="{{ site.editurl }}/{{ page.url | remove_first:'/' | replace: '.html', '.md' }}" target="#">edit page</a>{% endif %}
+    {% if site.issueurl %}<a class="topnav" href="{{ site.issueurl }}">issue tracker</a>{% endif %}
 
-    <a class="site-title" href="{{ site.baseurl }}">{{ site.name }}</a>
+    {% if site.name %}<span class="site-title">{{ site.name }}</span>{% endif %}
 
   </div>
 

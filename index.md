@@ -1,6 +1,6 @@
 ---
 layout: entry
-title: Annodoc documentation and template
+title: Annodoc documentation
 ---
 
 This is are an example of documentation created using the Annodoc
@@ -13,6 +13,10 @@ creating your own documentation using annodoc.
 * [What is Annodoc?](#what-is-annodoc)
 * [How does it work?](#how-does-it-work)
 * [Getting started](#getting-started)
+* [Running locally](#running-locally)
+* [Editing](#editing)
+* [Adding documents](#adding-documents)
+* [Configuration](#basic-configuration)
 * [Troubleshooting](#troubleshooting)
 
 ## What is Annodoc?
@@ -93,7 +97,30 @@ For more information on these technologies, please see the following:
 
 ## Getting started
 
-This is a dog.
+First, you need to get a copy of the Annodoc system. If you don't have
+one already, head over to the [Annodoc repository] and download, clone
+or fork the repository. TODO
+
+## Running locally
+
+**Please note**: the Annodoc system has been developed and tested in a
+linux environment and has so far not been specifically tested on
+Windows.  We strongly recommend a Unix or workalike system (OSX or
+linux) for running the system locally.
+
+For running Annodoc locally, you will need to have a recent version of
+[Jekyll]. In particular, version 2.0 or greater is required for
+[collection](#collections) features.
+
+## Editing
+
+Please note that for the "edit page" link to work, you will need to
+set the value of the `editurl` variable in `_config.yml` (see
+[configuration](#configuration)).
+
+## Adding documents
+
+
 
 ## Collections
 
@@ -106,7 +133,51 @@ find the source documents in the `_type` directory.
 {% endfor %}
 </ul>
 
+## Configuration
+
+Different aspects of the way a set of documentation is presented are
+controlled by various configuration files and settings. The following
+are the most important.
+
+* `_config.yml`
+
+The Jekyll top-level configuration file `_config.yml` controls many
+aspects of the conversion of the source documents into the final site
+as well as how Jekyll serves the site. This file also configures the
+[collections](#collections) that are defined for the documentation.
+Full documentation for `_config.yml` is available from
+<http://jekyllrb.com/docs/configuration/>.
+
+* `_includes/header.html`, `_includes/footer.html`
+
+These HTML files are automatically attached to every page on the site.
+Edit the HTML content of these two files to customize the look of the
+documentation, add navigation, etc. These files are standard HTML.
+
+* `css/main.css`, `css/style-vis.css`
+
+The [CSS] files found in the `css` subdirectory control the style
+(look) of the main documentation (`main.css`) and the visualizations
+(`style-vis.css`). It is not necessary to modify these in basic
+usage. If changes to the style of the documentation pages or the
+visualization are needed, please refer to e.g.
+<http://www.w3.org/Style/CSS/Overview.en.html> for more information.
+
+* `lib/local/config.js`
+
+This JavaScript file holds the configuration for the [brat]
+visualization component. The configuration specifies, for example, the
+colors, labels, label abbreviations, and line styles to use for
+visualizing various categories of annotation. For documentation on the
+contents and syntax of this file, refer to
+<http://brat.nlplab.org/configuration.html>.
+
 ## Troubleshooting
+
+The following sections provide instructions for troubleshooting
+various possible issues with the system.
+
+### Troubleshooting: basic visualization
 
 Are the annotation visualizations working? To check, see if the following
 visualization and image look (broadly) similar.
@@ -138,6 +209,19 @@ shown), then try the following:
 
 * Report the issue to the developers: email `sampo.pyysalo@gmail.com`
 
+### Troubleshooting: local usage
+
+If you are having trouble running the system locally, please check
+the following:
+
+* Check that you have a recent version of Jekyll by running `jekyll -v`.
+  Version 2.0 or greater is recommended.
+
+Some debian-based linux distributions are currently shipping a dated
+version of Jekyll. If you are using such a system, you may wish to
+consider using `gem` instead of `apt-get` to install Jekyll (see e.g.
+<http://jekyllrb.com/docs/installation/#install-with-rubygems>).
+
 [Markdown]: http://daringfireball.net/projects/markdown/
 [Stanford dependency]: http://nlp.stanford.edu/software/stanford-dependencies.shtml
 [CoNLL-X]: http://ilk.uvt.nl/conll/#dataformat
@@ -148,3 +232,5 @@ shown), then try the following:
 [Liquid]: http://wiki.shopify.com/Liquid
 [Git]: http://git-scm.com
 [GitHub]: http://github.com
+[Annodoc repository]: https://github.com/spyysalo/annodoc
+[CSS]: http://en.wikipedia.org/wiki/Cascading_Style_Sheets
