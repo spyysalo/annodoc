@@ -98,8 +98,33 @@ For more information on these technologies, please see the following:
 ## Getting started
 
 First, you need to get a copy of the Annodoc system. If you don't have
-one already, head over to the [Annodoc repository] and download, clone
-or fork the repository. TODO
+one already, head over to the online [Annodoc repository] and
+download, clone or fork the repository. The former two options
+(download or clone) will give you a local copy of the system (see
+[running locally](#running-locally) below), while cloning the
+repository can allow you to work within the online version control
+system (see [working online](#working-online)).
+
+To **download** the system source, navigate to the [Annodoc
+repository] and click on the `Download ZIP` link on the right-hand
+toolbar. You should then unpack the downloaded `.zip` file in an
+appropriate location and move to the directory with the source.  For
+the next steps, see [running locally](#running-locally) below.
+
+To **clone** the system, you will need the [Git] version control
+system. After making sure that Git is available, navigate to the
+[Annodoc repository] and copy the "clone URL" from the right-hand
+toolbar. Then, run the command `git clone <URL>`, where `<URL>` is the
+clone URL copied previously. Finally, move to the cloned directory and
+see [running locally](#running-locally) below for the next steps.
+
+To **fork** the system, you will need a GitHub account. Then, while
+logged in to GitHub, navigate to the [Annodoc repository] and click on
+the `Fork` button on the top right. This will give you a copy of the
+repository that you can work on in GitHub. You can then download or
+clone this copy, as above, to [run the system
+locally](#running-locally), or [work online](#working-online) (see
+below).
 
 ## Running locally
 
@@ -112,15 +137,94 @@ For running Annodoc locally, you will need to have a recent version of
 [Jekyll]. In particular, version 2.0 or greater is required for
 [collection](#collections) features.
 
+After getting a local copy of the system (see [Getting
+started](#getting-started) above), you can build the site from
+sources and serve the resulting documents using the command
+
+```
+jekyll serve --watch
+```
+
+(here, the option `--watch` specifies that Jekyll should watch the
+source documents for changes and rebuild the site when there are any.)
+
+If the above command runs successfully, you should see something like
+the following:
+
+<pre><code>$ jekyll serve --watch
+            Source: .
+       Destination: ./_site
+      Generating... done.
+ Auto-regeneration: enabled
+    Server address: http://0.0.0.0:4000/
+  Server running... press ctrl-c to stop.</code></pre>
+
+Here, the value `Server address` (commonly `http://0.0.0.0:4000/`) is
+a URL where Jekyll is serving the site from. You should be able to see
+the documentation by navigating to this address.
+
+## Working online
+
+For working online using GitHub, please refer to the documentation for
+GitHub Pages at <https://pages.github.com/>.
+
 ## Editing
 
-Please note that for the "edit page" link to work, you will need to
-set the value of the `editurl` variable in `_config.yml` (see
-[configuration](#configuration)).
+(start TODO)
+
+If the `editurl` site variable is set in `_config.yml` (see
+[Configuration](#configuration)), the header of each page will contain
+an "edit page" link. If `editurl` is correctly set, this link leads to
+the [GitHub] online editing page, shown in the following:
+
+<img style="width:100%; border:1px solid lightgray" src="static/img/gh-edit.png">
+
+To get started, the only relevant parts are the large black edit area
+and the "Cancel" and "Commit changes" buttons at the bottom.
+
+To give this a quick try, click on the following link: 
+[edit sandbox document]({{ site.editurl }}/sandbox.md). 
+This opens a "sandbox" document in a new tab. After testing
+it out, feel free to either cancel without saving your changes, or
+save them into the version control system using the "Commit changes"
+button. You can see the resulting document here (reload to see
+changes, and please note it may take some time for the changes to show
+up.)
+
+For experimenting with the system, we recommend using the sandbox
+document instead of any "real" documents.
+
+To edit the actual documentation, first find the page you're
+interested in. Then,
+
+* Click on the "edit page" link on the top
+* Make your changes in the GitHub editor
+* (Optional: add a message describing your changes in the "Commit changes" box)
+* Click on "Commit changes"
+
+Finally, wait a moment for your revisions to the documentation to be
+compiled (normally no more than 10 seconds) and reload the
+documentation page to make sure they look right.
+
+(You may wish to ask your system administrator to set up this feature
+for use by documentation authors.)
 
 ## Adding documents
 
+To add new documents into the system, simply create a new `.md`
+document in the base directory of the system and add the following
+front matter at the beginning of the document:
 
+<pre><code>---
+layout: entry
+title: DOCUMENT-TITLE
+---</code></pre>
+
+(where `DOCUMENT-TITLE` is the title you wish to give to the
+document.)
+
+This [YAML] front matter is required for Jekyll to identify the
+document as markdown.
 
 ## Collections
 
@@ -234,3 +338,4 @@ consider using `gem` instead of `apt-get` to install Jekyll (see e.g.
 [GitHub]: http://github.com
 [Annodoc repository]: https://github.com/spyysalo/annodoc
 [CSS]: http://en.wikipedia.org/wiki/Cascading_Style_Sheets
+[YAML]: http://yaml.org/
