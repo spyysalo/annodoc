@@ -544,3 +544,23 @@ code.embedded-wrapper,
   -moz-border-radius: 0;
   border-radius: 0;
 }
+
+.show-hide-div {
+  text-align: right;
+}
+.show-hide-toggle {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  -moz-border-bottom-left-radius: 0px;
+  -moz-border-bottom-right-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.show-hide-toggle .ui-button-text {
+  padding: 1px 4px;
+  font-size: 9px;
+}

@@ -9,10 +9,12 @@
     <link rel="root" href="{{ relative }}"/> <!-- for JS -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.homeurl }}">
 
+    <!-- Base jQuery-UI styles -->
+    <link rel="stylesheet" href="{{ relative }}css/jquery-ui-redmond.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ relative }}css/main.css">
     <!-- CSS for embedded visualizations -->
-    <link rel="stylesheet" href="{{ relative }}css/style-vis.css"/>
+    <link rel="stylesheet" href="{{ relative }}css/style-vis.css">
 
     <!-- head.js, required for embedding -->
     <script type="text/javascript" src="{{ relative }}lib/ext/head.load.min.js"></script>
