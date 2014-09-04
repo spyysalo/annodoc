@@ -517,6 +517,11 @@ shown), then try the following:
 * Check the JavaScript console for errors. (The console is accessed in
   different ways depending on your browser.)
 
+* Check that coderay is not running on the server. If active, coderay
+  may pre-empt embedded visualization processing by replacing the
+  annotation blocks. The `_config.yml` option `kramdown:
+  enable_coderay: false` should disable coderay.
+
 * Report the issue to the developers: email `sampo.pyysalo@gmail.com`
 
 ### Troubleshooting: local usage
