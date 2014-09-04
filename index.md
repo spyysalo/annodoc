@@ -271,7 +271,7 @@ T1 PERSON 0 12 Barack Obama
 As an alternative to the `~~~` syntax, you can use the equivalent HTML
 tag form:
 
-    <div class="sd-parse">
+    <div class="sdparse">
     Dogs run
     nsubj(run, Dogs)
     </div>
@@ -279,14 +279,14 @@ tag form:
 This form is more flexible in allowing e.g. additional attributes
 to control aspects of the visualization. For example,
 
-    <div class="sd-parse" id="simple-example-parse" tabs="yes">
+    <div class="sdparse" id="simple-example-parse" tabs="yes">
     Dogs run
     nsubj(run, Dogs)
     </div>
 
 gives
 
-<div class="sd-parse" id="simple-example-parse" tabs="yes">
+<div class="sdparse" id="simple-example-parse" tabs="yes">
 Dogs run
 nsubj(run, Dogs)
 </div>
@@ -383,14 +383,14 @@ Controls for visualization editing and information is accessible in
 elements with the attribute `tabs="yes"` (or any other non-empty
 value):
 
-    <div class="sd-parse" id="simple-example-parse" tabs="yes">
+    <div class="sdparse" id="simple-example-parse" tabs="yes">
     Dogs run
     nsubj(run, Dogs)
     </div>
 
 This gives:
 
-<div class="sd-parse" id="simple-example-parse" tabs="yes">
+<div class="sdparse" id="simple-example-parse" tabs="yes">
 Dogs run
 nsubj(run, Dogs)
 </div>
