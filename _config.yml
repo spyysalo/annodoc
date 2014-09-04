@@ -3,6 +3,10 @@
 source: .
 destination: ./_site
 markdown: kramdown
+# don't change the following; coderay will break the embedded
+# annotations.
+kramdown:
+  enable_coderay: false
 permalinks: pretty
 safe: true
 markdown_ext: md
