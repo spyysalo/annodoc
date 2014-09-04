@@ -14,7 +14,7 @@ creating your own documentation using annodoc.
 * [How does it work?](#how-does-it-work)
 * [Getting started](#getting-started)
 * [Running locally](#running-locally)
-* [Editing](#editing)
+* [Editing online](#editing-online)
 * [Visualizations](#visualizations)
 * [Adding documents](#adding-documents)
 * [Configuration](#basic-configuration)
@@ -169,9 +169,7 @@ the documentation by navigating to this address.
 For working online using GitHub, please refer to the documentation for
 GitHub Pages at <https://pages.github.com/>.
 
-## Editing
-
-(start TODO)
+## Editing online
 
 If the `editurl` site variable is set in `_config.yml` (see
 [Configuration](#configuration)), the header of each page will contain
