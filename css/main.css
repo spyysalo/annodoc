@@ -498,6 +498,14 @@ a.topnav  {
   margin-right: 40px;
 }
 
-span.site-title {
-  clear: both;
+/* span.site-title { */
+/*   clear: both; */
+/* } */
+
+.site-title-topnav {
+  color: #333;
+  font-size: 16px;
+  letter-spacing: -1px;
+  float: right;
+  line-height: 40px;
 }
