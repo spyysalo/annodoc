@@ -386,9 +386,9 @@ annotation
     T2 MERGE-ORG 14 27	joint venture
     T3 Organization 33 41	Ericsson
     E1 MERGE-ORG:T2 Org1:T1 Org2:T3
-    A1 Tense:Past E1
     T4 Country 62 68	Sweden
     R1 Origin Arg1:T3 Arg2:T4
+    A1 Name T4
     ~~~
 
 is visualized as follows:
@@ -399,9 +399,9 @@ T1 Organization 0 4	Sony
 T2 MERGE-ORG 14 27	joint venture
 T3 Organization 33 41	Ericsson
 E1 MERGE-ORG:T2 Org1:T1 Org2:T3
-A1 Tense:Past E1
 T4 Country 62 68	Sweden
 R1 Origin Arg1:T3 Arg2:T4
+A1 Name T4
 ~~~
 
 This example involves *text-bound* annotations, an *attribute*
@@ -428,11 +428,11 @@ above) or the "triggers" of event annotations (`joint venture`).
 #### Ann format: attribute annotations
 
 Attribute annotation associate either a binary flag (e.g. `IsName`) or
-a key-value pair (e.g. `Tense:Past`) with another annotation, such as
-an entity mention (textbound) or an event annotation.
+a key-value pair (e.g. `Tense`, `Past`) with another annotation, such
+as an entity mention (textbound) or an event annotation.
 
-    A1 Test:Past E1
-    A2 IsName T4
+    A1 IsName T4
+    A2 Tense E1 Past
 
 #### Ann format: relation annotations
 
@@ -694,16 +694,16 @@ Controls for visualization editing and information is accessible in
 elements with the attribute `tabs="yes"` (or any other non-empty
 value):
 
-    <div class="sdparse" id="simple-example-parse" tabs="yes">
-    Dogs run
-    nsubj(run, Dogs)
+    <div class="ann-annotation" tabs="yes">
+    Barack Obama is the current president.
+    T1 PERSON 0 12 Barack Obama
     </div>
 
 This gives:
 
-<div class="sdparse" id="simple-example-parse" tabs="yes">
-Dogs run
-nsubj(run, Dogs)
+<div class="ann-annotation" tabs="yes">
+Barack Obama is the current president.
+T1 PERSON 0 12 Barack Obama
 </div>
 
 You can click on the tab on the top right to edit the visualization,
