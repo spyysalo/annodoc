@@ -227,7 +227,10 @@ a:visited { color: #205caa; }
 .entry ul,
 .entry ol { margin-left: 1.35em; }
 
-.entry pre code { border: none; }
+.entry pre code { 
+  padding: 0;
+  border: none; 
+}
 
 /* terminal */
 .entry pre.terminal {

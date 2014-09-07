@@ -535,6 +535,7 @@ pre.embedding {
   background: none;
 }
 
+pre.embedded-wrapper,
 code.embedded-wrapper,
 .embedded-wrapper {
   margin: 0;
@@ -543,6 +544,7 @@ code.embedded-wrapper,
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
+  background: none;
 }
 
 .show-hide-div {
