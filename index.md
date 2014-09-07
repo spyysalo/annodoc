@@ -13,10 +13,9 @@ creating your own documentation using annodoc.
 * [What is Annodoc?](#what-is-annodoc)
 * [How does it work?](#how-does-it-work)
 * [Getting started](#getting-started)
-* [Running locally](#running-locally)
-* [Editing online](#editing-online)
-* [Visualizations](#visualizations)
+* [Editing documents](#editing-documents)
 * [Adding documents](#adding-documents)
+* [Visualizations](#visualizations)
 * [Configuration](#basic-configuration)
 * [Troubleshooting](#troubleshooting)
 
@@ -56,7 +55,7 @@ this example is generated from the following input:
 The text content of Annodoc documents is in the simple [Markdown]
 format (with the option to include HTML), and the data for the
 visualizations is represented in any of a number of supported
-annotation formats such as the [Stanford dependency], [CoNLL-X], or
+annotation formats such as [Stanford dependency], [CoNLL-X], or
 [.ann standoff].
 
 The final documents seen in the browser are a combination of (X)HTML
@@ -127,7 +126,7 @@ clone this copy, as above, to [run the system
 locally](#running-locally), or [work online](#working-online) (see
 below).
 
-## Running locally
+### Running locally
 
 **Please note**: the Annodoc system has been developed and tested in a
 linux environment and has so far not been specifically tested on
@@ -139,8 +138,9 @@ For running Annodoc locally, you will need to have a recent version of
 [collection](#collections) features.
 
 After getting a local copy of the system (see [Getting
-started](#getting-started) above), you can build the site from
-sources and serve the resulting documents using the command
+started](#getting-started) above), you can build the site from sources
+and serve the resulting documents by navigating to the directory with
+annodoc sources and using the command
 
 ```
 jekyll serve --watch
@@ -162,33 +162,88 @@ the following:
 
 Here, the value `Server address` (commonly `http://0.0.0.0:4000/`) is
 a URL where Jekyll is serving the site from. You should be able to see
-the documentation by navigating to this address.
+the documentation by navigating to this address using your browser.
+If you do not see the documentation at this address, please see
+[troubleshooting](#troubleshooting) below.
 
-## Working online
+### Working online
 
-For working online using GitHub, please refer to the documentation for
-GitHub Pages at <https://pages.github.com/>.
+In addition to running Jekyll locally (see [running
+locally](#running-locally)), it is possible to use the Annodoc system
+entirely online, relying on the facilities of [GitHub] (or a
+workalike) for generating the site from source using Jekyll. The
+following assumes that the repository is stored in [GitHub] unless
+separately mentioned.
 
-## Editing online
+GitHub provides website hosting with Jekyll support through [GitHub
+pages](https://pages.github.com/). Using GitHub pages with a GitHub
+repository is largely automatic: simply make sure that the source
+documents are held in the `gh-pages` branch of your repository, and
+the processed final documents will be automatically made available at
+`http://username.github.io/repository`, where `username` is your
+GitHub username and `repository` is the name of the repository.
 
-If the `editurl` site variable is set in `_config.yml` (see
-[Configuration](#configuration)), the header of each page will contain
-an "edit page" link. If `editurl` is correctly set, this link leads to
-the [GitHub] online editing page, shown in the following:
+For further information setting up GitHub pages, please refer to the
+documentation at <https://pages.github.com/>.
+
+## Editing documents
+
+You can either edit source documents directly in your favorite text
+editor, or via a simple online interface.
+
+### Editing locally
+
+If you have a local copy of an Annodoc system (see [Getting
+started](#getting-started) above), you can edit any of the source
+documents directly, using any text editor.
+
+Most typically, changes are made to one or more Markdown (`.md`)
+files. To see the effect of these changes in the final documentation,
+the source needs to be processed through Jekyll. (see [Running
+locally](#running-locally); note that this processing is automatic
+with the `--watch` option).
+
+If you are working with Git for version control, you should commit and
+push your changes to the Git repository when you are done, e.g. by
+running the following
+
+    git commit DOCUMENT.md
+    git push
+
+(where `DOCUMENT.md` is the name of the changed document.)
+
+Alternatively, you can run `git commit -a` to commit all changed
+documents.
+
+### Editing online
+
+If you are working with a repository stored in GitHub (or similar),
+you can use online editing features.
+
+**Please note**: the "edit page" link will only appear if the
+`editurl` site variable is set in `_config.yml` (see
+[Configuration](#configuration)). Please make sure that your
+configuration is correctly set up to use these features.
+
+When configured for online editing, the header of each Annodoc
+documentation page will contain an "edit page" link that leads to the
+[GitHub] online editing page, shown in the following:
 
 <img style="width:100%; border:1px solid lightgray" src="static/img/gh-edit.png">
 
-To get started, the only relevant parts are the large black edit area
-and the "Cancel" and "Commit changes" buttons at the bottom.
+This feature allows version-controlled documents to be edited directly
+from your browser. To get started, the only relevant parts are the
+large black edit area and the "Cancel" and "Commit changes" buttons at
+the bottom.
 
-To give this a quick try, click on the following link: 
-[edit sandbox document]({{ site.editurl }}/sandbox.md). 
-This opens a "sandbox" document in a new tab. After testing
-it out, feel free to either cancel without saving your changes, or
-save them into the version control system using the "Commit changes"
-button. You can see the resulting document here (reload to see
-changes, and please note it may take some time for the changes to show
-up.)
+To give this a quick try, click on the following link: [edit sandbox
+document]({{ site.editurl }}/sandbox.md).  This should open a
+"sandbox" document in a new tab. (If this does not work, please see
+[troubleshooting](#troubleshooting) below.) After testing it out, feel
+free to either cancel without saving your changes, or save them into
+the version control system using the "Commit changes" button. You can
+see the resulting document here (reload to see changes, and please
+note it may take some time for the changes to show up.)
 
 For experimenting with the system, we recommend using the sandbox
 document instead of any "real" documents.
@@ -205,8 +260,37 @@ Finally, wait a moment for your revisions to the documentation to be
 compiled (normally no more than 10 seconds) and reload the
 documentation page to make sure they look right.
 
-(You may wish to ask your system administrator to set up this feature
-for use by documentation authors.)
+## Adding documents
+
+To add new documents into the system, simply create a new `.md`
+document and add the following front matter at the beginning of the
+document:
+
+    ---
+    layout: entry
+    title: DOCUMENT-TITLE
+    ---
+
+(where `DOCUMENT-TITLE` is the title you wish to give to the
+document.)
+
+This [YAML] front matter is required for Jekyll to identify the
+document as markdown.
+
+If you are using the GitHub (or similar), you can create new documents
+simply by clicking on the `+` sign at the top or the repository file
+listing.
+
+If you are working locally with Git for version control, you can
+create new documents with any text editor and then add newly created
+documents to the Git repository, e.g. by running the following
+commands:
+
+    git add DOCUMENT.md
+    git commit
+    git push
+
+(where `DOCUMENT.md` is the name of the new document.)
 
 ## Visualizations
 
@@ -219,7 +303,33 @@ visualizations.
 This section provides examples of various ways to create
 visualizations.
 
-### Simple visualization examples
+### Visualization basics
+
+There are a number of ways to add visualizations into a document.  The
+most straightforward one is to wrap annotations in a format `FORMAT`
+with the lines `~~~ FORMAT` (before) and `~~~` (after). For example,
+
+    ~~~ ann
+    Barack Obama is the current president.
+    T1 PERSON 0 12 Barack Obama
+    ~~~
+
+gives the following visualization:
+
+~~~ ann
+Barack Obama is the current president.
+T1 PERSON 0 12 Barack Obama
+~~~
+
+Above, the `FORMAT` value `ann` specifies that the source content is
+in the [.ann standoff] format. Currently, the following formats are
+supported:
+
+* .ann standoff format: <http://brat.nlplab.org/standoff.html>
+* Stanford Dependency format: <http://nlp.stanford.edu/software/stanford-dependencies.shtml>
+* CoNLL-X format: <http://ilk.uvt.nl/conll/#dataformat>
+
+Some more simple examples follow.
 
 A single tree in the Stanford Dependency format can be embedded using
 the following syntax:
@@ -236,7 +346,8 @@ Dogs run
 nsubj(run, Dogs)
 ~~~
 
-The CoNLL-X format is also supported. For example,
+Parses represented in the CoNLL-X format can be embedded as illustrated
+by the following example:
 
     ~~~ conllx
     1    Dogs   dog    _    NNS    _    2    nsubj
@@ -250,46 +361,127 @@ gives
 2    run    run    _    VBP    _    0    ROOT
 ~~~
 
-Similarly, the [.ann standoff] format is supported:
+The remainder of this section provides further details for each
+supported format and additional information on options for embedding
+visualizations.
+
+### .ann standoff format
+
+This section provides information on the .ann standoff (Ann) format.
+For full documentation, please refer to
+<http://brat.nlplab.org/standoff.html>.
+
+#### Ann format: annotation primitives
+
+The following example illustrates some of the basic Ann format
+annotation primitives that are supported in visualizations. The
+annotation
 
     ~~~ ann
-    Barack Obama is the current president.
-    T1 PERSON 0 12 Barack Obama
+    Sony formed a joint venture with Ericsson, a company based in Sweden.
+    T1 Organization 0 4	Sony
+    T2 MERGE-ORG 14 27	joint venture
+    T3 Organization 33 41	Ericsson
+    E1 MERGE-ORG:T2 Org1:T1 Org2:T3
+    A1 Tense:Past E1
+    T4 Country 62 68	Sweden
+    R1 Origin Arg1:T3 Arg2:T4
+    ~~~
+
+is visualized as follows:
+
+~~~ ann
+Sony formed a joint venture with Ericsson, a company based in Sweden.
+T1 Organization 0 4	Sony
+T2 MERGE-ORG 14 27	joint venture
+T3 Organization 33 41	Ericsson
+E1 MERGE-ORG:T2 Org1:T1 Org2:T3
+A1 Tense:Past E1
+T4 Country 62 68	Sweden
+R1 Origin Arg1:T3 Arg2:T4
+~~~
+
+This example involves *text-bound* annotations, an *attribute*
+annotation, an *event* annotation, and a *relation* annotation. All
+annotations occupy a single line of the input and begin with a unique
+identifier. The remaining structure varies depending on the annotation
+primitive.
+
+#### Ann format: text-bound annotations
+
+Text-bound annotations identify a span of text using `(start, end)`
+offsets and assign it a type (note that the marked text is repeated
+for reference):
+
+    T1 Organization 0 4	Sony
+    T2 MERGE-ORG 14 27	joint venture
+    T3 Organization 33 41	Ericsson
+    T4 Country 75 81	Sweden
+
+Text-bound annotations can be used, for example, to mark mentions of
+specific named entities in text (`Sony`, `Ericsson` and `Sweden`
+above) or the "triggers" of event annotations (`joint venture`).
+
+#### Ann format: attribute annotations
+
+Attribute annotation associate either a binary flag (e.g. `IsName`) or
+a key-value pair (e.g. `Tense:Past`) with another annotation, such as
+an entity mention (textbound) or an event annotation.
+
+    A1 Test:Past E1
+    A2 IsName T4
+
+#### Ann format: relation annotations
+
+Relation annotations relate two other annotations and have a type
+(e.g. `Origin`).
+
+    R1 Origin Arg1:T3 Arg2:T4
+
+#### Ann format: event annotations
+
+Event annotations associate any number of annotations in specific
+roles (e.g. `Theme`, `Cause`), identifying the event with a type
+(e.g. `MERGE-ORG`) and a textbound annotation expressing it in text.
+
+    E1 MERGE-ORG:T2 Org1:T1 Org2:T3
+
+#### Ann format: other annotation primitives
+
+The [.ann standoff] format additionally supports equivalence
+relations, normalization annotations and comment (or note)
+annotations. These annotation primitives are presently not supported
+in Annodoc.
+
+### Stanford Dependency format
+
+This section provides details on the Stanford Dependency (SD) format.
+
+#### SD format basics
+
+Basic SD format visualizations consist of a single line of text
+followed by any number of typed dependencies between words using the
+simple format `TYPE(FROM, TO)`. For example, the input
+
+    ~~~ sdparse
+    The quick brown fox jumped
+    det(fox-4, The-1)
+    amod(fox-4, quick-2)
+    amod(fox-4, brown-3)
+    nsubj(jumped-5, fox-4)
     ~~~
 
 gives
 
-~~~ ann
-Barack Obama is the current president.
-T1 PERSON 0 12 Barack Obama
+~~~ sdparse
+The quick brown fox jumped
+det(fox-4, The-1)
+amod(fox-4, quick-2)
+amod(fox-4, brown-3)
+nsubj(jumped-5, fox-4)
 ~~~
 
-### Alternative visualization syntax
-
-As an alternative to the `~~~` syntax, you can use the equivalent HTML
-tag form:
-
-    <div class="sdparse">
-    Dogs run
-    nsubj(run, Dogs)
-    </div>
-
-This form is more flexible in allowing e.g. additional attributes
-to control aspects of the visualization. For example,
-
-    <div class="sdparse" id="simple-example-parse" tabs="yes">
-    Dogs run
-    nsubj(run, Dogs)
-    </div>
-
-gives
-
-<div class="sdparse" id="simple-example-parse" tabs="yes">
-Dogs run
-nsubj(run, Dogs)
-</div>
-
-### Ambiguous tokens (SD format)
+#### SD format: ambiguous tokens
 
 If your example has several instances of the same token, you can use
 their position to refer to the exact token. In the following example
@@ -315,39 +507,32 @@ dobj(can-3,can-5)
 punct(can-3,.)
 ~~~
 
-### POS tags (SD format)
+#### SD format: part-of-speech tags
 
-POS tags are optional and use the format "text/POS".
+Part-of-speech (POS) tags are optional and use the format `text/POS`.
 
     ~~~ sdparse
-    POS/NNP tags/NNS can/MD be/VB attached/VBN to/TO ( any part of ) the/DT sentence/NN text/NN ./.
-    dep(tags-2, POS-1)
-    nsubjpass(attached-5, tags-2)
-    aux(attached-5, can-3)
-    auxpass(attached-5, be-4)
-    prep(attached-5, to-6)
-    det(text-14, the-12)
-    nn(text-14, sentence-13)
-    pobj(to-6, text-14)
-    det(part, any)
-    prep(part, of)
+    POS/NNP tags/NNS can/MD be/VB attached/VBN to/TO tokens/NNS ./.
+    nn(tags, POS)
+    nsubjpass(attached, tags)
+    aux(attached, can)
+    auxpass(attached, be)
+    prep(attached, to)
+    pobj(to, tokens)
     ~~~
 
 ~~~ sdparse
-POS/NNP tags/NNS can/MD be/VB attached/VBN to/TO ( any part of ) the/DT sentence/NN text/NN ./.
-dep(tags-2, POS-1)
-nsubjpass(attached-5, tags-2)
-aux(attached-5, can-3)
-auxpass(attached-5, be-4)
-prep(attached-5, to-6)
-det(text-14, the-12)
-nn(text-14, sentence-13)
-pobj(to-6, text-14)
-det(part, any)
-prep(part, of)
+POS/NNP tags/NNS can/MD be/VB attached/VBN to/TO tokens/NNS ./.
+nn(tags, POS)
+nsubjpass(attached, tags)
+aux(attached, can)
+auxpass(attached, be)
+prep(attached, to)
+pobj(to, tokens)
 ~~~
 
-Any literal slashes ("/") can be escaped using backslash.
+If the source text contains any literal slashes (`/`), these can be
+escaped using backslash.
 
      ~~~ sdparse
      \\/\\ escapes/VBZ :/: \\o\//\\o\/
@@ -375,7 +560,132 @@ gives:
 One line \n and another.
 ~~~
 
-### Editing controls
+### CoNLL-X format
+
+This section provides information on the visualization of the CoNLL-X
+format.
+
+#### CoNLL-X format basics
+
+The [CoNLL-X] format is a format for representing dependency parses,
+developed as a variant of previous related formats for the 2006
+CoNLL-X shared task on multi-lingual dependency parsing.
+
+Each line in the CoNLL-X format specifies information relating to one
+token (or word). For example, the following defines two words
+
+    ~~~ conllx
+    1    Dogs   dog    _    NNS    _    2    nsubj    _    _
+    2    run    run    _    VBP    _    0    ROOT     _    _
+    ~~~
+
+visualized as
+
+~~~ conllx
+1    Dogs   dog    _    NNS    _    2    nsubj    _    _
+2    run    run    _    VBP    _    0    ROOT     _    _
+~~~
+
+The definitions of the various space-separated fields are provided
+in the following.
+
+#### CoNLL-X format field definitions
+
+The CoNLL-X format defines 10 fields separated by space (strictly TAB
+characters in the original definition):
+
+1. ID: Token counter, starting at 1 for each new sentence.
+2. FORM: Word form or punctuation symbol.
+3. LEMMA: Lemma or stem of word form.
+4. CPOSTAG: Coarse-grained part-of-speech tag.
+5. POSTAG: Fine-grained part-of-speech tag.
+6. FEATS: Unordered set of syntactic and/or morphological features.
+7. HEAD: Head of the current token.
+8. DEPREL: Dependency relation to the HEAD.
+9. PHEAD: Projective head of current token.
+10. PDEPREL: Dependency relation to the PHEAD.
+
+The current implementation of the visualization only uses the `ID`,
+`FORM`, `CPOSTAG`, `HEAD` and `DEPREL` attributes.
+
+### Alternative visualization syntaxes
+
+As an alternative to the `~~~` syntax, you can use the equivalent HTML
+tag form, where the format specification appears as the value of the
+`class` attribute. For example,
+
+    <div class="sdparse">
+    Dogs run
+    nsubj(run, Dogs)
+    </div>
+
+gives
+
+<div class="sdparse">
+Dogs run
+nsubj(run, Dogs)
+</div>
+
+This form is more flexible in allowing e.g. additional attributes
+to control aspects of the visualization. For example,
+
+    <div class="sdparse" id="simple-example-parse" tabs="yes">
+    Dogs run
+    nsubj(run, Dogs)
+    </div>
+
+gives
+
+<div class="sdparse" id="simple-example-parse" tabs="yes">
+Dogs run
+nsubj(run, Dogs)
+</div>
+
+(note the `edit` tab on the top right of the visualization.)
+
+The Kramdown variant of Markdown provides an additional syntax for
+specifying attributes called [Attribute List
+Definitions](http://kramdown.gettalong.org/syntax.html#attribute-list-definitions)
+(ALDs). Using ALDs, the above example can be alternatively written
+as
+
+    ~~~
+    Dogs run
+    nsubj(run, Dogs)
+    ~~~
+    {:.sdparse}
+
+giving
+
+~~~
+Dogs run
+nsubj(run, Dogs)
+~~~
+{:.sdparse}
+
+ALDs can be used to specify arbitrary attributes. For example, the
+`id` and `tabs` attributes can be specified as in the following:
+
+    ~~~
+    Dogs run
+    nsubj(run, Dogs)
+    ~~~
+    {:#simple-example-parse-2 .sdparse tabs="yes"}
+
+which gives
+
+~~~
+Dogs run
+nsubj(run, Dogs)
+~~~
+{:#simple-example-parse-2 .sdparse tabs="yes"}
+
+For full details on this feature, see
+<http://kramdown.gettalong.org/syntax.html#attribute-list-definitions>.
+
+### Other features
+
+#### Editing controls
 
 Controls for visualization editing and information is accessible in
 elements with the attribute `tabs="yes"` (or any other non-empty
@@ -397,7 +707,7 @@ You can click on the tab on the top right to edit the visualization,
 but note that the edits are not saved anywhere as there's no
 server. This is mostly useful to build and debug examples.
 
-### Unicode
+#### Unicode
 
 Everything is unicode-compliant.
 
@@ -412,23 +722,6 @@ Everything is unicode-compliant.
 nsubj(入れる, ロボットは)
 nommod(入れる, 東大に)
 ~~~
-
-## Adding documents
-
-To add new documents into the system, simply create a new `.md`
-document in the base directory of the system and add the following
-front matter at the beginning of the document:
-
-<pre><code>---
-layout: entry
-title: DOCUMENT-TITLE
----</code></pre>
-
-(where `DOCUMENT-TITLE` is the title you wish to give to the
-document.)
-
-This [YAML] front matter is required for Jekyll to identify the
-document as markdown.
 
 ## Collections
 
@@ -534,6 +827,27 @@ Some debian-based linux distributions are currently shipping a dated
 version of Jekyll. If you are using such a system, you may wish to
 consider using `gem` instead of `apt-get` to install Jekyll (see e.g.
 <http://jekyllrb.com/docs/installation/#install-with-rubygems>).
+
+### Troubleshooting: editing online
+
+If the "edit page" links do not appear on Annodoc documentation pages,
+please make sure `editurl` site variable is set in `_config.yml` (see
+[Configuration](#configuration)).
+
+If the "edit page" link appears but does not lead to a GitHub
+online editing page, please check the following:
+
+* GitHub online editing is working as intended. Click on any document
+in your GitHub repository and click on the pen icon to test this
+feature.
+
+* `editurl` is correctly set. Try comparing the generated "edit page"
+links with the URL used for the GitHub online editing page.
+
+* You are allowed to edit the repository (owner or collaborator) and
+you are logged in to GitHub.
+
+------------------------------------------------------------------------------
 
 [Markdown]: http://daringfireball.net/projects/markdown/
 [Stanford dependency]: http://nlp.stanford.edu/software/stanford-dependencies.shtml
