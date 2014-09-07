@@ -8,7 +8,7 @@ markdown: kramdown
 kramdown:
   enable_coderay: false
 permalinks: pretty
-safe: true
+# safe: true
 markdown_ext: md
 
 ##############################################################################
