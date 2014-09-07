@@ -16,7 +16,7 @@ creating your own documentation using annodoc.
 * [Editing documents](#editing-documents)
 * [Adding documents](#adding-documents)
 * [Visualizations](#visualizations)
-* [Configuration](#basic-configuration)
+* [Configuration](#configuration)
 * [Troubleshooting](#troubleshooting)
 
 ## What is Annodoc?
@@ -182,6 +182,9 @@ documents are held in the `gh-pages` branch of your repository, and
 the processed final documents will be automatically made available at
 `http://username.github.io/repository`, where `username` is your
 GitHub username and `repository` is the name of the repository.
+
+**Note:** GitHub pages are publicly visible even for private GitHub
+repositories.
 
 For further information setting up GitHub pages, please refer to the
 documentation at <https://pages.github.com/>.
@@ -724,6 +727,17 @@ nommod(入れる, 東大に)
 ~~~
 
 ## Collections
+
+[Jekyll collections](http://jekyllrb.com/docs/collections/) are a
+recently introduced Jekyll feature that allows sets of related
+documents to be grouped together. Collections support various
+operations that specifically benefit guideline development, such as
+automatic listings and generation of "merged" documents.
+
+As an illustrative example, this Annodoc repository contains a
+collection named `type` with a few example documents. Using the
+[Liquid] language, this allows e.g. documentation listing to be
+generated as follows:
 
 The following is a listing of pages in the "type" collection.  You can
 find the source documents in the `_type` directory.
