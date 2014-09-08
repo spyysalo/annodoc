@@ -758,13 +758,33 @@ collection named `type` with a few example documents. Using the
 generated as follows:
 
 The following is a listing of pages in the "type" collection.  You can
-find the source documents in the `_type` directory.
+find the source documents in the `_type/` directory.
 
 <ul>
 {% for t in site.type %}
   <li><a href="{{ t.url | remove_first:'/' }}">{{ t.title }}</a>: {{ t.shortdef }}</li>
 {% endfor %}
 </ul>
+
+We can similarly generate a listing of all collections and all
+documents in those collections:
+
+<ul>
+{% for i in site.collections %}{% assign c = i[1] %}
+  <li><b>Collection</b>: {{ c.label }}</li>
+  <ul>
+  {% for d in c.docs %}
+    <li><a href="{{ d.url | remove_first:'/' }}">{{ d.title }}</a>: {{ d.shortdef }}</li>
+  {% endfor %}
+  </ul>
+{% endfor %}
+</ul>
+
+To add documents to a collection, simply add them to the corresponding
+directory (e.g. `_type/` for the collection `type`). To add new
+collections to the system, first create the directory, and then add
+the corresponding entry to `collections` in `_config.yml` (see
+[Configuration](#configuration) below).
 
 ## Configuration
 
