@@ -425,6 +425,24 @@ Text-bound annotations can be used, for example, to mark mentions of
 specific named entities in text (`Sony`, `Ericsson` and `Sweden`
 above) or the "triggers" of event annotations (`joint venture`).
 
+In addition to simple `(start, end)` spans, discontinuous span
+annotations are also supported using the syntax `START END[;START
+END[...]]`. For example,
+
+    ~~~ ann
+    Barack and Michelle Obama
+    T1 PERSON 0 6;20 25 Barack Obama
+    T2 PERSON 11 19 Michelle
+    ~~~
+
+gives
+
+~~~ ann
+Barack and Michelle Obama
+T1 PERSON 0 6;20 25 Barack Obama
+T2 PERSON 11 19 Michelle
+~~~
+
 #### Ann format: attribute annotations
 
 Attribute annotation associate either a binary flag (e.g. `IsName`) or
