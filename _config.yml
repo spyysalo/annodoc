@@ -25,5 +25,7 @@ issueurl: "https://github.com/spyysalo/annodoc/issues"
 # Collection settings
 
 collections:
-  type:
+  entity:
+    output: true
+  relation:
     output: true

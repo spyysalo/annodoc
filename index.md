@@ -16,6 +16,7 @@ creating your own documentation using annodoc.
 * [Editing documents](#editing-documents)
 * [Adding documents](#adding-documents)
 * [Visualizations](#visualizations)
+* [Collections](#collections)
 * [Configuration](#configuration)
 * [Troubleshooting](#troubleshooting)
 
@@ -752,39 +753,54 @@ documents to be grouped together. Collections support various
 operations that specifically benefit guideline development, such as
 automatic listings and generation of "merged" documents.
 
-As an illustrative example, this Annodoc repository contains a
-collection named `type` with a few example documents. Using the
-[Liquid] language, this allows e.g. documentation listing to be
-generated as follows:
+As an illustrative example, this Annodoc repository contains two
+collections named `entity` and `relation` with a few example
+documents. Using the [Liquid] language, this allows e.g. a listing
+of documents in a specific collection to be created as follows:
 
-The following is a listing of pages in the "type" collection.  You can
-find the source documents in the `_type/` directory.
+{% raw %}
+    {% for e in site.entity %}
+    * {{ e.title }}
+    {% endfor %}
+{% endraw %}
 
-<ul>
-{% for t in site.type %}
-  <li><a href="{{ t.url | remove_first:'/' }}">{{ t.title }}</a>: {{ t.shortdef }}</li>
+which produces the following:
+
+{% for e in site.entity %}
+* {{ e.title }}
 {% endfor %}
-</ul>
 
-We can similarly generate a listing of all collections and all
+We can similarly generate a listing of all collections, linking all
 documents in those collections:
 
-<ul>
+{% raw %}
+    {% for i in site.collections %}{% assign c = i[1] %}
+    * <b>Collection</b>: {{ c.label }}
+      {% for d in c.docs %}
+      * [{{ d.title }}]({{ d.url | remove_first:'/' }}): {{ d.shortdef }}
+      {% endfor %}
+    {% endfor %}
+{% endraw %}
+
+Which gives
+
 {% for i in site.collections %}{% assign c = i[1] %}
-  <li><b>Collection</b>: {{ c.label }}</li>
-  <ul>
+* <b>Collection</b>: {{ c.label }}
   {% for d in c.docs %}
-    <li><a href="{{ d.url | remove_first:'/' }}">{{ d.title }}</a>: {{ d.shortdef }}</li>
+  * [{{ d.title }}]({{ d.url | remove_first:'/' }}): {{ d.shortdef }}
   {% endfor %}
-  </ul>
 {% endfor %}
-</ul>
 
 To add documents to a collection, simply add them to the corresponding
 directory (e.g. `_type/` for the collection `type`). To add new
 collections to the system, first create the directory, and then add
 the corresponding entry to `collections` in `_config.yml` (see
 [Configuration](#configuration) below).
+
+It is recommended to organize (non-overlapping) sets of related
+documents into collections. To get the most out of your Jekyll
+collections, please refer also to the Liquid language documentation at
+<http://wiki.shopify.com/Liquid>.
 
 ## Configuration
 
