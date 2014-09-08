@@ -7,6 +7,8 @@ shortdef: "familial relationship between humans"
 The `FAMILY` relation is annotated between two `PERSON` entities that
 are stated to stand in any familial relationship.
 
+<!-- details -->
+
 Example:
 
 ~~~ ann

@@ -770,6 +770,23 @@ which produces the following:
 * {{ e.title }}
 {% endfor %}
 
+Alternatively, we can produce "merged" documents by importing the
+contents of documents in collections. The following example shows
+the contents of documents in the `entity` collection up to the
+first `<!-- details -->` marker (if any):
+
+{% raw %}
+    {% for e in site.entity %}
+    * {{ e.content | split:"<!-- details -->" | first }}
+    {% endfor %}
+{% endraw %}
+
+which gives
+
+{% for e in site.entity %}
+* {{ e.content | split:"<!-- details -->" | first }}
+{% endfor %}
+
 We can similarly generate a listing of all collections, linking all
 documents in those collections:
 
@@ -782,7 +799,7 @@ documents in those collections:
     {% endfor %}
 {% endraw %}
 
-Which gives
+which gives
 
 {% for i in site.collections %}{% assign c = i[1] %}
 * <b>Collection</b>: {{ c.label }}

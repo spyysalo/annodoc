@@ -7,6 +7,8 @@ shortdef: "individual human or group of humans"
 References to single individual humans as well as groups of humans are
 annotated as `PERSON`.
 
+<!-- details -->
+
 Example:
 
 ~~~ ann

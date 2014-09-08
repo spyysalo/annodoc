@@ -7,6 +7,8 @@ shortdef: "human groups established for a purpose"
 References to human groups that have been established for a specific
 purpose are annotated as `ORGANIZATION`.
 
+<!-- details -->
+
 Example:
 
 ~~~ ann
