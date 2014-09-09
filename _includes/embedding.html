@@ -17,8 +17,8 @@
         root + 'lib/brat/url_monitor.js',
         root + 'lib/brat/visualizer.js',
 
-        // embedding support modules
-        root + 'lib/local/embed.js',
+        // annotation documentation support
+        root + 'lib/local/annodoc.js',
         root + 'lib/local/config.js'
     );
 
@@ -44,9 +44,7 @@
     };
 
     head.ready(function() {
-        var cdata = Config.bratCollData;
-
 	// performes all embedding and support functions
-	Embed.embedBratVisualizations(cdata, documentCollections);
+	Annodoc.activate(Config.bratCollData, documentCollections);
     });
 </script>
