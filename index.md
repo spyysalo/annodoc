@@ -819,6 +819,58 @@ documents into collections. To get the most out of your Jekyll
 collections, please refer also to the Liquid language documentation at
 <http://wiki.shopify.com/Liquid>.
 
+### Linking to collection entries
+
+It is often necessary to cross-reference parts of documentation from
+others. To make creating such links easier, Annodoc provides support
+for automatically linking to collection entries.
+
+The syntax for creating such links is simple: just wrap the name of
+any collection entry in `<a>` and `</a>` (HTML anchor) tags. For
+example, to create a link to the documentation for the PERSON type,
+use
+
+    <a>PERSON</a>
+
+which gives the following link
+
+<a>PERSON</a>
+
+For cases where the same label (name) occurs in several collections,
+it is possible to disambiguate the target by including the collection
+name in the format `COLLECTION/ENTRY`, for example
+
+    <a>entity/PERSON</a>
+
+which produces
+
+<a>entity/PERSON</a>
+
+(Note that the text of the generated link only includes the entry
+label.)
+
+Either of these forms can be used in running text, for example
+
+    <a>FAMILY</a> relation arguments have type <a>PERSON</a>.
+
+gives
+
+<a>FAMILY</a> relation arguments have type <a>PERSON</a>.
+
+Cases where linking failed are visually marked to identify the
+issue:
+
+    <a>no-such-type</a>
+
+is shown as
+
+<a>no-such-type</a>
+
+Note that this automatic processing only applies to `<a>` elements
+that have neither an `href` nor an `id` attribute. This means that
+standard HTML anchors and links can be used normally in Annodoc
+documents.
+
 ## Configuration
 
 Different aspects of the way a set of documentation is presented are
