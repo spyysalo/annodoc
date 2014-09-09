@@ -573,3 +573,6 @@ code.embedded-wrapper,
   font-size: 11px;
   border: 2px inset
 }
+a.doclink {
+  text-decoration: none;
+}
