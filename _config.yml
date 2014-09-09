@@ -16,7 +16,7 @@ markdown_ext: md
 # Site settings
 
 name: Annodoc
-homeurl: ""
+homeurl: "https://github.com/spyysalo/annodoc/"
 editurl: "https://github.com/spyysalo/annodoc/edit/gh-pages"
 issueurl: "https://github.com/spyysalo/annodoc/issues"
 
