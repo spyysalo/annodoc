@@ -29,10 +29,9 @@
     ];
 
     head.ready(function() {
-        // TODO: avoid global collData
-        collData = Config.bratCollData;
+        var cdata = Config.bratCollData;
 
 	// performes all embedding and support functions
-	Embed.embedBratVisualizations();
+	Embed.embedBratVisualizations(cdata);
     });
 </script>
