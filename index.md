@@ -826,50 +826,56 @@ others. To make creating such links easier, Annodoc provides support
 for automatically linking to collection entries.
 
 The syntax for creating such links is simple: just wrap the name of
-any collection entry in `<a>` and `</a>` (HTML anchor) tags. For
-example, to create a link to the documentation for the PERSON type,
-use
+any collection entry as in `[NAME]()`. For example, to create a link
+to the documentation for the PERSON type, use
 
-    <a>PERSON</a>
+    [PERSON]()
 
 which gives the following link
 
-<a>PERSON</a>
+[PERSON]()
+
+Alternatively, you can use empty HTML anchor tags (`<a>`, `</a>`),
+as in
+
+    <a>PERSON</a>
+
+(These two alternative forms result in identical links.)
 
 For cases where the same label (name) occurs in several collections,
 it is possible to disambiguate the target by including the collection
 name in the format `COLLECTION/ENTRY`, for example
 
-    <a>entity/PERSON</a>
+    [entity/PERSON]()
 
-which produces
+(or, equivalently, `<a>entity/PERSON</a>`) which produces
 
-<a>entity/PERSON</a>
+[entity/PERSON]()
 
 (Note that the text of the generated link only includes the entry
 label.)
 
 Either of these forms can be used in running text, for example
 
-    <a>FAMILY</a> relation arguments have type <a>PERSON</a>.
+    [FAMILY]() relation arguments have type [PERSON]().
 
 gives
 
-<a>FAMILY</a> relation arguments have type <a>PERSON</a>.
+[FAMILY]() relation arguments have type [PERSON]().
 
 Cases where linking failed are visually marked to identify the
 issue:
 
-    <a>no-such-type</a>
+    [no-such-type]()
 
 is shown as
 
-<a>no-such-type</a>
+[no-such-type]()
 
 Note that this automatic processing only applies to `<a>` elements
-that have neither an `href` nor an `id` attribute. This means that
-standard HTML anchors and links can be used normally in Annodoc
-documents.
+that have neither an `href` nor an `id` attribute (or empty `href`).
+This means that standard HTML anchors and links can be used normally
+in Annodoc documents without triggering this feature.
 
 ## Configuration
 
