@@ -57,4 +57,14 @@ Alternative syntax
 Dynamic visualization (click "edit!")
 </div>
 
+<div class="conllx-parse" tabs="yes">
+1   CoNLL-X   CoNLL-X   NNP   _    _    2    NMOD    _    _
+2   example   example   NN    _    _    0    ROOT    _    _
+</div>
+
+<div class="conllu-parse" tabs="yes">
+1   CoNLL-U   CoNLL-U   NNP   _    _    2    nmod    _    _
+2   example   example   NN    _    _    0    root    _    _
+</div>
+
 ----------
