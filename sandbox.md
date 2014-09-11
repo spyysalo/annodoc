@@ -67,4 +67,9 @@ Dynamic visualization (click "edit!")
 2   example   example   NN    _    _    0    root    _    _
 </div>
 
+~~~ sdparse
+Parse with errors
+det(no-such, token)
+~~~
+
 ----------
