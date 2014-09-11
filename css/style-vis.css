@@ -59,6 +59,9 @@ svg {
 svg.reselect {
   border: 1px solid #ff3333;
 }
+div.haserror > svg {
+  border: 1px solid red;
+}
 
 /* "basic" font */
 text {
@@ -533,6 +536,7 @@ pre.embedding {
   -moz-border-radius: 0;
   border-radius: 0;
   background: none;
+  white-space: normal;
 }
 
 pre.embedded-wrapper,
