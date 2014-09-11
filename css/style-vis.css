@@ -549,6 +549,7 @@ code.embedded-wrapper,
   -moz-border-radius: 0;
   border-radius: 0;
   background: none;
+  white-space: normal;
 }
 
 .show-hide-div {
