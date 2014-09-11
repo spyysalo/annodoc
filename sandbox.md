@@ -67,6 +67,10 @@ Dynamic visualization (click "edit!")
 2   example   example   NN    _    _    0    root    _    _
 </div>
 
+<div class="ann-annotation" tabs="yes">
+.ann annotation example
+</div>
+
 ~~~ sdparse
 Parse with errors
 det(no-such, token)
