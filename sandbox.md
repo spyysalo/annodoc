@@ -67,6 +67,15 @@ Dynamic visualization (click "edit!")
 2   example   example   NN    _    _    0    root    _    _
 </div>
 
+<div class="conllu-parse" tabs="yes">
+1    Då      då     ADV      AB                    _ _ _ _ _
+2    var     vara   VERB     VB.PRET.ACT           Tense=Pret|Voice=Act _ _ _ _
+3    han     han    PRON     PN.UTR.SIN.DEF.NOM    Case=Nom,Mom|Def=Def|Gen=Uter|Num=Sing _ _ _ _
+4    elva    elva   NUM      RG.NOM                Case=Nom|NumType=Card _ _ _ _
+5    år      år     NOUN     NN.NEU.PLU.IND.NOM    Case=Nom|Def=Ind|Gen=Neut|Num=Plur _ _ _ _
+6    .       .      PUNCT    DL.MAD                _ _ _ _ _
+</div>
+
 <div class="ann-annotation" tabs="yes">
 .ann annotation example
 </div>
