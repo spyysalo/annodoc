@@ -3,18 +3,6 @@
 
 /* Styling for annotations */
 
-.sentnum text {
-  display: none; /* sentence number disabled for the time being. */
-  fill: #999999;
-  text-anchor: end;
-}
-
-.sentnum path {
-  display: none; /* sentence number disabled for the time being. */
-  stroke: #999999;
-  stroke-width: 1px;
-}
-
 #svg {
   margin: 34px auto 100px;
   padding-top: 15px;
@@ -305,6 +293,18 @@ rect.shadow_EditHighlight {
   fill: #ffff99;
 }
 
+.sentnum text {
+  display: none; /* sentence number disabled for the time being. */
+  fill: #999999;
+  text-anchor: end;
+}
+
+.sentnum path {
+  display: none; /* sentence number disabled for the time being. */
+  stroke: #999999;
+  stroke-width: 1px;
+}
+
 .span_cue {
   fill: #eeeeee !important;
 }
@@ -529,7 +529,6 @@ fieldset legend {
 
 /* embedding */
 pre.embedding {
-  margin: 0;
   padding: 0;
   border: none;
   overflow: visible;
@@ -538,6 +537,12 @@ pre.embedding {
   border-radius: 0;
   background: none;
   white-space: normal;
+}
+
+/* same margins for <div> and <pre><div> variants */
+.embedding,
+.embedding.embedded-wrapper {
+  margin: 0.5em 0;
 }
 
 pre.embedded-wrapper,
