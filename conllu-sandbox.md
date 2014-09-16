@@ -35,6 +35,28 @@ support (see [format](format.html)).
 
 </div>
 
+### Multiple sentences
+
+<div class="conllu-parse" tabs="yes">
+1	LONDRA	Londra	NOUN	_	_	0	root	_	_
+2	.	.	.	_	_	1	punct	_	_
+
+# This is a comment
+1	Gas	gas	NOUN	_	Gen=M|Num=N	0	root	_	_
+2-3	dalla	_	_	_	_	_	_	_	_
+2	da	da	ADP	_	_	1	adpmod	_	_
+3	la	la	DET	_	Gen=F|Num=S	4	det	_	_
+4	statua	statua	NOUN	_	Gen=F|Num=S	2	adpobj	_	_
+5	.	.	.	_	_	1	punct	_	_
+
+1	Evacuata	evacuare	VERB	_	Gen=F|Mod=P|Num=S	3	partmod	_	_
+2	la	il	DET	_	Gen=F|Num=S	3	det	_	_
+3	Tate	Tate	NOUN	_	_	0	root	_	_
+4	Gallery	Gallery	NOUN	_	_	3	mwe	_	_
+5	.	.	PUNCT	_	_	3	punct	_	_
+
+</div>
+
 ## Acceptable examples with loose parsing
 
 Otherwise valid, but two spaces instead of single tab as field
