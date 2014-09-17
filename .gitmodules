@@ -1,0 +1,3 @@
+[submodule "lib/ext/conllu.js"]
+	path = lib/ext/conllu.js
+	url = git@github.com:spyysalo/conllu.js.git
