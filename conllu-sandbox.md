@@ -57,6 +57,36 @@ support (see [format](format.html)).
 
 </div>
 
+### Sentence labels
+
+<div class="conllu-parse" tabs="yes">
+# sentence-label 1
+1	LONDRA	Londra	NOUN	_	_	0	root	_	_
+2	.	.	.	_	_	1	punct	_	_
+
+# sentence-label A
+1	Gas	gas	NOUN	_	Gen=M|Num=N	0	root	_	_
+2	.	.	.	_	_	1	punct	_	_
+
+# sentence-label B4
+1	Tate	Tate	NOUN	_	_	0	root	_	_
+2	Gallery	Gallery	NOUN	_	_	1	mwe	_	_
+3	.	.	PUNCT	_	_	1	punct	_	_
+
+</div>
+
+### Custom styles
+
+<div class="conllu-parse" tabs="yes">
+1	They	they	PRON	PRN	Case=Nom|Num=Plur	2	nsubj	4:nsubj	_
+2	buy	buy	VERB	VBP	Num=Plur|Per=3|Tense=Pres	0	root	_	_
+3	and	and	CONJ	CC	_	2	cc	_	_
+4	sell	sell	VERB	VBP	Num=Plur|Per=3|Tense=Pres	2	conj	_	_
+5	books	book	NOUN	NNS	Num=Plur	2	dobj	4:dobj	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
 ## Acceptable examples with loose parsing
 
 Otherwise valid, but two spaces instead of single tab as field
@@ -299,6 +329,12 @@ Non-valid examples from "tools" test cases
 6	.	.	PUNCT	.	_	2	punct	_	_
 
 # this comment should not be here as it does not precede a sentence.
+</div>
+
+### missing final newline
+
+<div class="conllu-parse" tabs="yes">
+1	Gas	gas	NOUN	S	Gen=M|Num=N	0	root	_	_
 </div>
 
 ### multiword-with-pos.conll
