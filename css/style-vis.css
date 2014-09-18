@@ -294,13 +294,13 @@ rect.shadow_EditHighlight {
 }
 
 .sentnum text {
-  display: none; /* sentence number disabled for the time being. */
+  display: none; /* sentence number disabled by default (JS may toggle) */
   fill: #999999;
   text-anchor: end;
 }
 
 .sentnum path {
-  display: none; /* sentence number disabled for the time being. */
+  display: none; /* sentence number disabled by default (JS may toggle) */
   stroke: #999999;
   stroke-width: 1px;
 }
