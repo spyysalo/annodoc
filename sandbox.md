@@ -68,6 +68,12 @@ Dynamic visualization (click "edit!")
 </div>
 
 <div class="conllu-parse" tabs="yes">
+# sentence-label S1
+1   CoNLL-U   CoNLL-U   NNP   _    _    2    nmod    _    _
+2   example   example   NN    _    _    0    root    _    _
+</div>
+
+<div class="conllu-parse" tabs="yes">
 1    Då      då     ADV      AB                    _ _ _ _ _
 2    var     vara   VERB     VB.PRET.ACT           Tense=Pret|Voice=Act _ _ _ _
 3    han     han    PRON     PN.UTR.SIN.DEF.NOM    Case=Nom,Mom|Def=Def|Gen=Uter|Num=Sing _ _ _ _
