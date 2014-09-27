@@ -823,7 +823,7 @@ collections, please refer also to the Liquid language documentation at
 
 It is often necessary to cross-reference parts of documentation from
 others. To make creating such links easier, Annodoc provides support
-for automatically linking to collection entries.
+for linking to collection entries.
 
 The syntax for creating such links is simple: just wrap the name of
 any collection entry as in `[NAME]()`. For example, to create a link
@@ -872,10 +872,29 @@ is shown as
 
 [no-such-type]()
 
+For all of the forms listed above, the text of the link matches the
+linked type. To get a different text, use the syntax
+`[text](TYPE)`. For example,
+
+    [people](PERSON)
+
+and 
+
+    [people](entity/PERSON)
+
+both generate the same link: [people](PERSON) and [people](entity/PERSON)
+
+This form can also be written in HTML as
+
+    <a href="PERSON">people</a>
+
+Which again gives an identical link: <a href="PERSON">people</a>
+
 Note that this automatic processing only applies to `<a>` elements
-that have neither an `href` nor an `id` attribute (or empty `href`).
-This means that standard HTML anchors and links can be used normally
-in Annodoc documents without triggering this feature.
+that have no `href`, `id`, or `name` attributes or whose `href`
+attribute matches a simple pattern (e.g. lacking `http://` and
+`.html`). This means that standard HTML anchors and links can be used
+normally in Annodoc documents without triggering this feature.
 
 ## Configuration
 
