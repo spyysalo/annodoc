@@ -101,6 +101,14 @@ nsubj(Aראה, Aדני)
 dobj(Aראה, Aסרט)
 ~~~
 
+Without "A"
+
+~~~ sdparse
+דני/NOUN ראה/VERB סרט/NOUN
+nsubj(ראה, דני)
+dobj(ראה, סרט)
+~~~
+
 Same sentence in CoNLL-U:
 
 ~~~ conllu
