@@ -1,9 +1,9 @@
 ---
 layout: entry
-title: Annodoc documentation
+title: Annodoc: annotation documentation support system
 ---
 
-This is an example of documentation created using the Annodoc
+This is a page of documentation created using the Annodoc
 system. It serves a double purpose as *documentation* for the Annodoc
 system and as a *template* that you can use as a starting point for
 creating your own documentation using annodoc.
