@@ -7,27 +7,24 @@
         root + 'lib/ext/jquery.svgdom.min.js',
         root + 'lib/ext/jquery-ui.min.js',
         root + 'lib/ext/waypoints.min.js',
-
         // brat helper modules
         root + 'lib/brat/configuration.js',
         root + 'lib/brat/util.js',
         root + 'lib/brat/annotation_log.js',
         root + 'lib/ext/webfont.js',
-        // brat modules
+        // brat main modules
         root + 'lib/brat/dispatcher.js',
         root + 'lib/brat/url_monitor.js',
         root + 'lib/brat/visualizer.js',
-
         // external parsing libraries
         root + 'lib/ext/conllu.js/conllu.js',
-
         // annotation documentation support
         root + 'lib/local/annodoc.js',
+        // project-specific configuration
         root + 'lib/local/config.js'
     );
 
     var webFontURLs = [
-//        root + 'static/fonts/Astloch-Bold.ttf',
         root + 'static/fonts/PT_Sans-Caption-Web-Regular.ttf',
         root + 'static/fonts/Liberation_Sans-Regular.ttf'
     ];
@@ -37,12 +34,10 @@
         "_current" : "{{ page.collection }}",
 {% for i in site.collections %}{% assign c = i[1] %}
         "{{ c.label }}": [
-{% for d in c.docs %}
-            {
+{% for d in c.docs %}            {
                 "title": "{{ d.title }}",
                 "url":   "{{ site.baseurl }}{{ d.url }}",
-            },
-{% endfor %}
+            },{% endfor %}
         ],
 {% endfor %}
     };
