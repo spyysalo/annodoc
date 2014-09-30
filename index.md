@@ -3,7 +3,7 @@ layout: entry
 title: Annodoc documentation
 ---
 
-This is are an example of documentation created using the Annodoc
+This is an example of documentation created using the Annodoc
 system. It serves a double purpose as *documentation* for the Annodoc
 system and as a *template* that you can use as a starting point for
 creating your own documentation using annodoc.
