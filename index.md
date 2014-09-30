@@ -56,8 +56,8 @@ this example is generated from the following input:
 The text content of Annodoc documents is in the simple [Markdown]
 format (with the option to include HTML), and the data for the
 visualizations is represented in any of a number of supported
-annotation formats such as [Stanford dependency], [CoNLL-X], or
-[.ann standoff].
+annotation formats such as [Stanford dependency], [CoNLL-X], 
+[CoNLL-U], or [.ann standoff].
 
 The final documents seen in the browser are a combination of (X)HTML
 and [SVG] for the visualizations. The primary tools for generating the
@@ -92,6 +92,7 @@ For more information on these technologies, please see the following:
 * Liquid: <http://wiki.shopify.com/Liquid>
 * Stanford Dependency format: <http://nlp.stanford.edu/software/stanford-dependencies.shtml>
 * CoNLL-X format: <http://ilk.uvt.nl/conll/#dataformat>
+* CoNLL-U format: <http://universaldependencies.github.io/docs/format.html>
 * .ann standoff format: <http://brat.nlplab.org/standoff.html>
 * Git: <http://git-scm.com/>
 * GitHub: <http://github.com>
@@ -630,6 +631,11 @@ characters in the original definition):
 The current implementation of the visualization only uses the `ID`,
 `FORM`, `CPOSTAG`, `HEAD` and `DEPREL` attributes.
 
+### CoNLL-U format
+
+For information on the CoNNL-U format, please see
+<http://universaldependencies.github.io/docs/format.html>.
+
 ### Alternative visualization syntaxes
 
 As an alternative to the `~~~` syntax, you can use the equivalent HTML
@@ -1014,6 +1020,7 @@ you are logged in to GitHub.
 [Markdown]: http://daringfireball.net/projects/markdown/
 [Stanford dependency]: http://nlp.stanford.edu/software/stanford-dependencies.shtml
 [CoNLL-X]: http://ilk.uvt.nl/conll/#dataformat
+[CoNLL-U]: http://universaldependencies.github.io/docs/format.html
 [.ann standoff]: http://brat.nlplab.org/standoff.html
 [SVG]: http://en.wikipedia.org/wiki/Scalable_Vector_Graphics
 [Jekyll]: http://jekyllrb.com/
