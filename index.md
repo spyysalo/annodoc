@@ -1,6 +1,6 @@
 ---
 layout: entry
-title: Annodoc: annotation documentation support system
+title: Annodoc annotation documentation support system
 ---
 
 This is a page of documentation created using the Annodoc
