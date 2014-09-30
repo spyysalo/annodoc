@@ -31,7 +31,7 @@ integration with version control.
 For example, consider the following fragment of documentation
 
 <div class="documentation-example" markdown="1">
-Mentions of person names are annotated as `PERSON`
+Mentions of person names are annotated as [PERSON]()
 
 ~~~ ann
 Barack Obama is the current president.
@@ -44,7 +44,7 @@ T1 PERSON 0 12 Barack Obama
 
 this example is generated from the following input:
 
-    Mentions of person names are annotated as `PERSON`
+    Mentions of person names are annotated as [PERSON]()
 
     ~~~ ann
     Barack Obama is the current president.
