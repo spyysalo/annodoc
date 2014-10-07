@@ -333,6 +333,7 @@ supported:
 * .ann standoff format: <http://brat.nlplab.org/standoff.html>
 * Stanford Dependency format: <http://nlp.stanford.edu/software/stanford-dependencies.shtml>
 * CoNLL-X format: <http://ilk.uvt.nl/conll/#dataformat>
+* CoNLL-U format: <http://universaldependencies.github.io/docs/format.html>
 
 Some more simple examples follow.
 
@@ -364,6 +365,22 @@ gives
 ~~~ conllx
 1    Dogs   dog    _    NNS    _    2    nsubj
 2    run    run    _    VBP    _    0    ROOT
+~~~
+
+Finally, parses in the CoNLL-U format can be embedded as shown below:
+
+    ~~~ conllu
+    1    They    they    PRON    PRN    Case=Nom|Num=Plur            2    nsubj    _    _
+    2    buy     buy     VERB    VBP    Num=Plur|Per=3|Tense=Pres    0    root     _    _
+    3    books   book    NOUN    NNS    Num=Plur                     2    dobj     _    _
+    ~~~
+
+resulting in
+
+~~~ conllu
+1    They    they    PRON    PRN    Case=Nom|Num=Plur            2    nsubj    _    _
+2    buy     buy     VERB    VBP    Num=Plur|Per=3|Tense=Pres    0    root     _    _
+3    books   book    NOUN    NNS    Num=Plur                     2    dobj     _    _
 ~~~
 
 The remainder of this section provides further details for each
@@ -633,7 +650,58 @@ The current implementation of the visualization only uses the `ID`,
 
 ### CoNLL-U format
 
-For information on the CoNNL-U format, please see
+This section provides information on the visualization of the [CoNLL-U]
+format.
+
+#### CoNLL-U format basics
+
+The CoNLL-U format is a format for representing dependency parses,
+developed in the 
+[Universal Dependencies](universaldependencies.github.io/docs/)
+project as a revision of the CoNLL-X format.
+
+Most lines in CoNLL-U format specify the annotation of a single word
+or token. The format uses blank lines to separate sentences (as in
+CoNLL-X), and allows also comment lines beginning with the hash
+character (`#`). The following example illustrates these:
+
+    ~~~ conllu
+    # this is one sentence
+    1    Dogs   dog    NOUN    NNS    _    2    nsubj    _    _
+    2    run    run    VERB    VBP    _    0    ROOT     _    _
+    
+    # this is a second sentence
+    1    Cats   cat    NOUN    NNS    _    2    nsubj    _    _
+    2    sleep  sleep  VERB    VBP    _    0    ROOT     _    _
+    ~~~
+
+~~~ conllu
+# this is one sentence
+1    Dogs   dog    NOUN    NNS    _    2    nsubj    _    _
+2    run    run    VERB    VBP    _    0    ROOT     _    _
+
+# this is a second sentence
+1    Cats   cat    NOUN    NNS    _    2    nsubj    _    _
+2    sleep  sleep  VERB    VBP    _    0    ROOT     _    _
+~~~
+
+#### CoNLL-U format field definitions
+
+The CoNLL-U format defines 10 fields separated by space (strictly TAB
+characters in the original definition):
+
+ 1. ID: Word index, integer starting at 1 for each new sentence; may be a range for tokens with multiple words.
+ 2. FORM: Word form or punctuation symbol.
+ 3. LEMMA: Lemma or stem of word form.
+ 4. CPOSTAG: Google universal part-of-speech tag from the [universal POS tag](http://universaldependencies.github.io/docs/u/pos/index.html) set.
+ 5. POSTAG: Language-specific part-of-speech tag; underscore if not available.
+ 6. FEATS: List of morphological features from the [universal feature inventory](http://universaldependencies.github.io/docs/u/feat/index.html) or from a defined language-specific extension; underscore if not available.
+ 7. HEAD: Head of the current token, which is either a value of ID or zero (0).
+ 8. DEPREL: [Universal Stanford dependency relation](http://universaldependencies.github.io/docs/u/dep/index.html) to the HEAD (root iff HEAD = 0) or a defined language-specific subtype of one.
+ 9. DEPS: List of secondary dependencies (head-deprel pairs).
+10. MISC: Any other annotation.
+
+For the complete documentation on the CoNLL-U format, please see
 <http://universaldependencies.github.io/docs/format.html>.
 
 ### Alternative visualization syntaxes
