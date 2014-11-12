@@ -28,6 +28,11 @@ using a simple plain-text like format with support for the
 visualization of complex, structured text annotation and close
 integration with version control.
 
+A brief
+[introduction of Annodoc](http://www2.lingfil.uu.se/SLTC2014/abstracts/sltc2014_submission_32.pdf)
+[PDF] was recently presented at
+[SLTC'14](http://www2.lingfil.uu.se/SLTC2014/).
+
 For example, consider the following fragment of documentation
 
 <div class="documentation-example" markdown="1">
