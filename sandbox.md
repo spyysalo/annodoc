@@ -123,3 +123,13 @@ Empty node
 
 ----------
 
+Space in FORM and LEMMA
+
+<div class="conllu-parse" tabs="yes">
+1	Sue	Sue	PROPN	_	_	2	nsubj	_	_
+2	L I K E S	l i k e	VERB	_	_	0	root	_	_
+3	coffee	coffee	NOUN	_	_	2	obj	_	_
+
+</div>
+
+----------
