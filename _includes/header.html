@@ -3,7 +3,7 @@
   <div class="wrap">
 
     {% if site.homeurl %}<a class="topnav" href="{{ site.homeurl }}">home</a>{% endif %}
-    {% if site.editurl %}<a class="topnav" href="{{ site.editurl }}{% if page.collection %}/{{ page.collection | prepend: '_' }}{% endif %}/{{ page.url | split: '/' | last | replace: '.html', '.md' }}" target="#">edit page</a>{% endif %}
+    {% if site.editurl %}<a class="topnav" href="{{ site.editurl }}{% if page.collection %}/{{ page.collection | prepend: '_' }}{% endif %}/{% assign p = page.url | split: '/' | last | replace: '.html', '.md' %}{% if p == '' %}index.md{% else %}{{ p }}{% endif %}" target="#">edit page</a>{% endif %}
     {% if site.issueurl %}<a class="topnav" href="{{ site.issueurl }}">issue tracker</a>{% endif %}
 
     {% if site.name %}<span class="site-title-topnav">{{ site.name }}</span>{% endif %}
