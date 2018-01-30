@@ -870,7 +870,7 @@ We can similarly generate a listing of all collections, linking all
 documents in those collections:
 
 {% raw %}
-    {% for i in site.collections %}{% if i[1] %}{% assign c = i[1] %}{% else %}{% assign c = i %}{% endif %}
+    {% for c in site.collections %}
     * <b>Collection</b>: {{ c.label }}
       {% for d in c.docs %}
       * [{{ d.title }}]({{ d.url | remove_first:'/' }}): {{ d.shortdef }}
@@ -880,7 +880,7 @@ documents in those collections:
 
 which gives
 
-{% for i in site.collections %}{% if i[1] %}{% assign c = i[1] %}{% else %}{% assign c = i %}{% endif %}
+{% for c in site.collections %}
 * <b>Collection</b>: {{ c.label }}
   {% for d in c.docs %}
   * [{{ d.title }}]({{ d.url | remove_first:'/' }}): {{ d.shortdef }}
