@@ -30,7 +30,7 @@ integration with version control.
 
 A brief
 [introduction of Annodoc](http://www2.lingfil.uu.se/SLTC2014/abstracts/sltc2014_submission_32.pdf)
-[PDF] was recently presented at
+[PDF] was presented at
 [SLTC'14](http://www2.lingfil.uu.se/SLTC2014/).
 
 For example, consider the following fragment of documentation
